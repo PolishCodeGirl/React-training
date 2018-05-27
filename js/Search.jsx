@@ -1,10 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import preload from '../data.json';
 
 const Search = () => (
-  <div>
-    <h1>Hi it is Search form the Moon</h1>
-    <Link to='/'>BACK</Link>
+  <div className='search'>
+    <pre><code>{JSON.stringify(preload, null, 4)}</code></pre>
   </div>
 )
 
