@@ -3,17 +3,9 @@ import ShowCard from './ShowCard';
 import preload from '../data.json';
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
+  state = { searchValue: '' }
 
-    this.state = {
-      searchValue: ''
-    }
-
-    this.handleSearchOutput = this.handleSearchOutput.bind(this)
-  }
-
-  handleSearchOutput (event) {
+  handleSearchOutput = event => {
     this.setState({
       searchValue: event.target.value
     })
@@ -31,7 +23,9 @@ class Search extends Component {
             placeholder='Search...'/>
         </header>
         <div>
-          {preload.shows.map(show => <ShowCard key={show.title} show={show}/>)}
+          {preload.shows
+            .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchValue.toUpperCase()) >= 0)
+            .map(show => <ShowCard key={show.title} show={show}/>)}
         </div>
       </div>
     )
