@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
 import preload from '../data.json';
@@ -5,7 +6,7 @@ import preload from '../data.json';
 class Search extends Component {
   state = { searchValue: '' }
 
-  handleSearchOutput = event => {
+  handleSearchOutput = (event: SyntheticKeyboardEvent & { target: HTMLInputElement } )=> {
     this.setState({
       searchValue: event.target.value
     })

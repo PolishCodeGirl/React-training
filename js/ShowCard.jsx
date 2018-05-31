@@ -1,26 +1,28 @@
+// @flow
 import React from 'react';
-import { shape, string } from 'prop-types';
+// import { shape, string } from 'prop-types';
 import styled from 'styled-components'
 
-const ShowCard = ({ show }) => (
+const ShowCard = (props: {show: {title: string, poster: string, year: string, description: string}}) => (
   <Wrapper className='schow-card'>
-    <Image alt={`${show.title} Poster`} src={`/public/img/posters/${show.poster}`}/>
+    <Image alt={`${props.show.title} Poster`} src={`/public/img/posters/${props.show.poster}`}/>
     <div>
-      <h3>{show.title}</h3>
-      <h4>({show.year})</h4>
-      <p>{show.description}</p>
+      <h3>{props.show.title}</h3>
+      <h4>({props.show.year})</h4>
+      <p>{props.show.description}</p>
     </div>
   </Wrapper>
 );
 
-ShowCard.propTypes = {
-  show: shape({
-    title: string.isRequired,
-    poster: string.isRequired,
-    year: string.isRequired,
-    description: string.isRequired,
-  })
-}
+// Because I use FLOW, I don't need propTypes anymore
+// ShowCard.propTypes = {
+//   show: shape({
+//     title: string.isRequired,
+//     poster: string.isRequired,
+//     year: string.isRequired,
+//     description: string.isRequired,
+//   })
+// }
 
 ShowCard.defaultProps = {
   show: {}
