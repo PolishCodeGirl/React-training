@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import ShowCard from './ShowCard';
+import Header from './Header';
 
 class Search extends Component {
   state = { searchValue: '' }
@@ -18,14 +19,7 @@ class Search extends Component {
   render() {
     return (
       <div className='search'>
-        <header>
-          <h1>Shows!</h1>
-          <input
-            value={this.state.searchValue}
-            onChange={this.handleSearchOutput}
-            type='text'
-            placeholder='Search...'/>
-        </header>
+        <Header showSearch searchValue={this.state.searchValue} handleSearchOutput={this.handleSearchOutput}/>
         <div>
           {this.props.shows
             .filter(show => `${show.title} ${show.description}`.toUpperCase().indexOf(this.state.searchValue.toUpperCase()) >= 0)
