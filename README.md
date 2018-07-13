@@ -11,3 +11,7 @@ Please contribute, file issues, and make PRs. More than anything I'm sure there 
 MIT
 
 [gh-page]: http://btholt.github.io/complete-intro-to-react/
+
+## How to run project
+
+To run the project type `yarn dev` in your console

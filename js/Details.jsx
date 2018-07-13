@@ -13,7 +13,7 @@ class Details extends Component {
     axios
       // request is getting from the local server - you need to start it with `yarn api` in the terminal
       .get(`http://localhost:3000/${this.props.show.imdbID}`)
-      .then(response => {
+      .then((response: { data: { rating: string } }) => {
         this.setState({ apiData: response.data })
       })
   }

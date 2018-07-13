@@ -2,9 +2,10 @@
 import React from 'react';
 // import { shape, string } from 'prop-types';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-const ShowCard = (props: {show: {title: string, poster: string, year: string, description: string}}) => (
-  <Wrapper className='schow-card'>
+const ShowCard = (props: {show: {title: string, poster: string, year: string, description: string, imdbID: string}}) => (
+  <Wrapper className='schow-card' to={`/details/${props.show.imdbID}`}>
     <Image alt={`${props.show.title} Poster`} src={`/public/img/posters/${props.show.poster}`}/>
     <div>
       <h3>{props.show.title}</h3>
@@ -30,13 +31,16 @@ ShowCard.defaultProps = {
 
 export default ShowCard;
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   width: 32%;
   border: 2px solid #333;
   border-radius: 4px;
   margin-bottom: 25px;
   padding-right: 10px;
   overflow: hidden;
+
+  color: black;
+  text-decoration: none;
 `
 
 const Image = styled.img`
