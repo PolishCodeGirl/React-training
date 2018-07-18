@@ -1,6 +1,11 @@
 // @flow
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapStateToProps = state => ({
+  searchTerm: state.searchTerm
+})
 
 const Landing = () => (
   <div className='landing'>
@@ -10,4 +15,4 @@ const Landing = () => (
   </div>
 )
 
-export default Landing;
+export default connect(mapStateToProps)(Landing);
